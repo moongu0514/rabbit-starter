@@ -1,0 +1,18 @@
+host:
+  serverHost: 127.0.0.1
+  rabbit:
+    port: 5672
+    username: admin
+    password: 123456
+    virtualHost: reactor
+hsja:
+  env:
+    rabbit:
+      host: ${host.serverHost}
+      port: ${host.rabbit.port}
+      username: ${host.rabbit.username}
+      password: ${host.rabbit.password}
+      virtualHost: ${host.rabbit.virtualHost}
+logging:
+  level:
+    root: info

@@ -1,0 +1,18 @@
+host:
+  serverHost: 192.168.1.221
+  rabbit:
+    port: 15672
+    username: reactor
+    password: reactor@123
+    virtualHost: reactor
+hsja:
+  env:
+    rabbit:
+      host: ${host.serverHost}
+      port: ${host.rabbit.port}
+      username: ${host.rabbit.username}
+      password: ${host.rabbit.password}
+      virtualHost: ${host.rabbit.virtualHost}
+logging:
+  level:
+    root: info

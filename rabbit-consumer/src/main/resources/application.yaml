@@ -1,0 +1,15 @@
+server:
+  port: 12300
+spring:
+  application:
+    name: rabbit-consummer
+  profiles:
+    active: dev
+logging:
+  level:
+    hsja:
+      ibas:
+        common:
+          starter:
+            rabbitmq:
+              event: debug

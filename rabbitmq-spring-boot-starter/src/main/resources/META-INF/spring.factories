@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+top.gtyun.starter.rabbitmq.config.RabbitConfig,\
+top.gtyun.starter.rabbitmq.client.RabbitClient,\
+top.gtyun.starter.rabbitmq.event.IbasRemoteEventListener
