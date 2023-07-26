@@ -95,11 +95,14 @@ public class RabbitConsumerAppTest {
 //        rabbitClient.publishEvent("demoBusEvent", params);
     }
     @Test
-    void testFakeEvent(){
+    void testFakeEvent() throws InterruptedException {
         //rabbitmq消息总线测试
         List<Long> subIds = Arrays.asList(11L, 22L, 33L);
         DeviceModel device = DeviceModel.builder().id(1L).name("测试空压机1").type(11).subIds(subIds).build();
         rabbitClient.publishEvent("demoBusEvent1", device);
+
+        // 持久化队列需要在线的时候消费远程事件，作为发布者，也要处理远程事件（默认丢弃）
+        Thread.sleep(2000);
     }
 
 }

@@ -2,6 +2,7 @@ package top.gtyun.starter.rabbitmq.client;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
 import top.gtyun.starter.rabbitmq.annotation.RabbitComponent;
 import top.gtyun.starter.rabbitmq.event.EventObj;
 import top.gtyun.starter.rabbitmq.event.IbasRemoteApplicationEvent;
@@ -81,6 +82,8 @@ public class RabbitClient {
         if (ObjectUtil.isNotEmpty(queues)) {
 
             for (String queueName : queues) {
+                // 统一管理队列名称（添加前缀）
+                queueName = StrUtil.format("{}.{}", ExchangeBuilder.DIRECT_EXCHANGE, queueName);
                 Properties result = this.rabbitAdmin.getQueueProperties(queueName);
                 if (ObjectUtil.isEmpty(result)) {
                     Queue queue = new Queue(queueName);

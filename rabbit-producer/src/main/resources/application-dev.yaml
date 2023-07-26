@@ -1,5 +1,6 @@
 host:
   serverHost: 127.0.0.1
+  eventBusName: ibas.event.bus
   rabbit:
     port: 5672
     username: admin
@@ -16,3 +17,16 @@ hsja:
 logging:
   level:
     root: info
+
+spring:
+  cloud:
+    bus:
+      destination: ${host.eventBusName}
+    stream:
+      bindings:
+        springCloudBusInput:
+          destination: ${host.eventBusName}
+          group: ${spring.application.name}
+        springCloudBusOutput:
+          destination: ${host.eventBusName}
+          group: ${spring.application.name}
