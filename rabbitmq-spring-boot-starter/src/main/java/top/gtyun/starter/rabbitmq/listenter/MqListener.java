@@ -8,6 +8,7 @@ import com.rabbitmq.client.Channel;
  * @author gutao
  * @date 2023/07/21
  */
+@FunctionalInterface
 public interface MqListener<T> {
     /**
      * 监听处理
