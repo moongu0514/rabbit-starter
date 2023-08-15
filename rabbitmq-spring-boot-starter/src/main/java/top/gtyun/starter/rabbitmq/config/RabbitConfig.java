@@ -1,5 +1,6 @@
 package top.gtyun.starter.rabbitmq.config;
 
+import lombok.extern.slf4j.Slf4j;
 import top.gtyun.starter.rabbitmq.event.IbasRemoteApplicationEvent;
 import org.springframework.amqp.rabbit.annotation.RabbitListenerConfigurer;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -24,6 +25,7 @@ import javax.annotation.Resource;
  * @author gutao
  * @date 2023-06-12 16:32
  */
+@Slf4j
 @Configuration
 @AutoConfigureOrder(Ordered.LOWEST_PRECEDENCE)
 @EnableConfigurationProperties(RabbitMqProperty.class)
@@ -127,15 +129,15 @@ public class RabbitConfig implements RabbitListenerConfigurer {
 //    }
 
     /**
-     * 错误消息处理器
+     * MQ监听器错误处理器
      *
      * @return {@link RabbitListenerErrorHandler}
      */
     @Bean
     public RabbitListenerErrorHandler rabbitListenerErrorHandler() {
-        return (amqpMessage, message, exception) -> {
-            exception.printStackTrace();
-            throw exception;
+        return (amqpMessage, message, e) -> {
+            log.error("监听处理时报错：{}", e.getMessage());
+            throw e;
         };
     }
 

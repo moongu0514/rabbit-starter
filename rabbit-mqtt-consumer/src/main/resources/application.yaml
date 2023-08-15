@@ -1,0 +1,8 @@
+server:
+  port: 123111
+spring:
+  application:
+    name: iot-consummer
+  profiles:
+    active: hsja
+

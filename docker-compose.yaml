@@ -5,11 +5,12 @@ services:
     ports:
       - 15672:15672
       - 5672:5672
-    restart: always
+#    restart: always
     volumes:
       - /etc/localtime:/etc/localtime
       - ./rabbitmq:/var/lib/rabbitmq
     environment:
+      - RABBITMQ_DEFAULT_VHOST=reactor
       - RABBITMQ_DEFAULT_USER=admin
       - RABBITMQ_DEFAULT_PASS=123456
     image: rabbitmq:3.12-management

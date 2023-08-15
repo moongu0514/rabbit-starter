@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>rabbit-consumer</artifactId>
+    <artifactId>rabbit-mqtt-consumer</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -22,11 +22,11 @@
             <artifactId>rabbitmq-spring-boot-starter</artifactId>
             <version>1.0.0-SNAPSHOT</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>hsja.ibas</groupId>-->
-<!--            <artifactId>ibas-starter-rabbitmq</artifactId>-->
-<!--            <version>1.0.0-SNAPSHOT</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>2.3.12.RELEASE</version>
+        </dependency>
 
     </dependencies>
 </project>

@@ -17,6 +17,7 @@
         <module>rabbitmq-spring-boot-starter</module>
         <module>rabbit-producer</module>
         <module>rabbit-consumer</module>
+        <module>rabbit-mqtt-consumer</module>
     </modules>
 
 </project>

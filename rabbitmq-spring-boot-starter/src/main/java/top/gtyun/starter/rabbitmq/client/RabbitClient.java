@@ -83,7 +83,7 @@ public class RabbitClient {
 
             for (String queueName : queues) {
                 // 统一管理队列名称（添加前缀）
-                queueName = StrUtil.format("{}.{}", ExchangeBuilder.DIRECT_EXCHANGE, queueName);
+//                queueName = StrUtil.format("{}.{}", ExchangeBuilder.DIRECT_EXCHANGE, queueName);
                 Properties result = this.rabbitAdmin.getQueueProperties(queueName);
                 if (ObjectUtil.isEmpty(result)) {
                     Queue queue = new Queue(queueName);

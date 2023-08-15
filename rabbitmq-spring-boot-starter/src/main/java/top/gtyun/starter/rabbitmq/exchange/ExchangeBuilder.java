@@ -14,6 +14,7 @@ import org.springframework.amqp.core.CustomExchange;
 public class ExchangeBuilder {
     public static final String DEFAULT_DELAY_EXCHANGE = "ibas.delayed.exchange";
     public static final String DIRECT_EXCHANGE = "ibas.direct.exchange";
+    public static final String IOT_EXCHANGE = "ibas.iot.exchange";
 
     public ExchangeBuilder() {
     }
