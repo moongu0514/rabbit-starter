@@ -16,7 +16,7 @@ hsja:
       virtualHost: ${host.rabbit.virtualHost}
 logging:
   level:
-    root: info
+    root: debug
 
 spring:
   cloud:

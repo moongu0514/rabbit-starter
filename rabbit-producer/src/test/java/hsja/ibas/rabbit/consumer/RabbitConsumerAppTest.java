@@ -105,4 +105,14 @@ public class RabbitConsumerAppTest {
         Thread.sleep(2000);
     }
 
+    @Test
+    void testDelayMsg() {
+        // 测试延时消息，确保已经安装了延时插件！
+        List<Long> subIds = Arrays.asList(11L, 22L, 33L);
+        DeviceModel device = DeviceModel.builder().id(1L).name("测试空压机100").type(11).subIds(subIds).build();
+        rabbitClient.sendMessage("test-delay", device, 1000);
+        rabbitClient.sendMessage("test-delay", device, 5000);
+        rabbitClient.sendMessage("test-delay", device, 10000);
+    }
+
 }
